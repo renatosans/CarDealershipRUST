@@ -12,8 +12,12 @@ pub type DbPool = r2d2::Pool<ConnectionManager<MysqlConnection>>;
 
 fn main() {
     let mut catalogo = Catalogo {..Default::default()};
-    let carsForSale: Vec<CarsForSale> = catalogo.retrieve_cars();
-    carsForSale.into_iter().for_each(|car: CarsForSale| {
+    let cars: Vec<CarsForSale> = catalogo.retrieve_cars();
+    if cars.is_empty() {
+        catalogo.insert_car();
+        return;
+    }
+    cars.into_iter().for_each(|car: CarsForSale| {
         println!("Car: {:?}", car);
     });
 }
