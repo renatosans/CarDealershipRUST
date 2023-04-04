@@ -10,7 +10,7 @@ diesel::table! {
         color -> Nullable<Varchar>,
         mileage -> Nullable<Integer>,
         category -> Nullable<Varchar>,
-        price -> Decimal,
+        price -> Float8,
     }
 }
 

@@ -5,9 +5,10 @@
 
 use chrono::NaiveDate;
 use diesel::prelude::*;
-
+use crate::schema::cars_for_sale;
 
 #[derive(Queryable, Insertable, Debug)]
+#[diesel(table_name = cars_for_sale)]
 pub struct CarsForSale {
     pub id: i32,
     pub brand: String,
