@@ -8,5 +8,6 @@ edition = "2021"
 [dependencies]
 dotenv = "0.15.0"
 chrono = { version = "0.4.24", features = ["serde"] }
-diesel = { version = "2.0.3", features = ["mysql", "postgres", "r2d2", "chrono"] }
+diesel = { version = "2.0.3", features = ["mysql", "r2d2", "chrono"] }
 serde = { version = "1.0.159", features = ["derive"] }
+okapi = "0.4.0"
