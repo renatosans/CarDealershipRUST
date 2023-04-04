@@ -7,7 +7,7 @@ use chrono::NaiveDate;
 use diesel::prelude::*;
 
 
-#[derive(Queryable, Debug)]
+#[derive(Queryable, Insertable, Debug)]
 pub struct CarsForSale {
     pub id: i32,
     pub brand: String,

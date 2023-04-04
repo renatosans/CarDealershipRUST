@@ -1,6 +1,5 @@
 mod models;
 mod schema;
-use diesel::expression::is_aggregate::No;
 use models::*;
 use schema::cars_for_sale::dsl::cars_for_sale;
 
