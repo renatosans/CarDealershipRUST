@@ -11,3 +11,4 @@ chrono = { version = "0.4.24", features = ["serde"] }
 diesel = { version = "2.0.3", features = ["mysql", "r2d2", "chrono"] }
 serde = { version = "1.0.159", features = ["derive"] }
 okapi = "0.4.0"
+actix-web = "4.3.1"
