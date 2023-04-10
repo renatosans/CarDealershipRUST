@@ -3,6 +3,7 @@ mod models;
 mod handlers;
 
 use dotenv::dotenv;
+use handlers::salesperson;
 use handlers::customer;
 use handlers::cars_for_sale;
 use diesel::prelude::*;
@@ -40,6 +41,9 @@ async fn main() -> std::io::Result<()> {
                     .service(customer::create)
                     .service(customer::update)
                     .service(customer::delete)
+                    .service(salesperson::index)
+                    // .service(salesperson::select)
+                    // .service(salesperson::create)
             )
     })
     .bind(("127.0.0.1", 8080))?

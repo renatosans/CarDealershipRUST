@@ -5,6 +5,7 @@
 
 use chrono::NaiveDate;
 use diesel::prelude::*;
+use crate::schema::salesperson;
 use crate::schema::customer;
 use crate::schema::cars_for_sale;
 use serde::{Serialize, Deserialize};
@@ -52,7 +53,8 @@ pub struct Invoice {
     pub amount: i32,
 }
 
-#[derive(Queryable, Debug)]
+#[derive(Queryable, Insertable, Serialize, Deserialize, Debug)]
+#[diesel(table_name = salesperson)]
 pub struct Salesperson {
     pub id: i32,
     pub first_name: Option<String>,

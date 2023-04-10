@@ -49,7 +49,7 @@ diesel::table! {
         id -> Integer,
         first_name -> Nullable<Varchar>,
         last_name -> Nullable<Varchar>,
-        commission -> Decimal,
+        commission -> Float8,
     }
 }
 
