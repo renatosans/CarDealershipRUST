@@ -1,0 +1,26 @@
+[
+	{
+		"id" : 1,
+		"first_name" : "Herbert",
+		"last_name" : "Olga",
+		"birth_date" : "1982-11-10",
+		"email" : "herbertolga@gmail.com.ca",
+		"phone" : "99727701"
+	},
+	{
+		"id" : 2,
+		"first_name" : "Isabela",
+		"last_name" : "Cristina",
+		"birth_date" : "1997-05-05",
+		"email" : "isabela@gmail.com",
+		"phone" : "99700522"
+	},
+	{
+		"id" : 3,
+		"first_name" : "Caio",
+		"last_name" : "Batista",
+		"birth_date" : "1990-10-06",
+		"email" : "caio_batista@hotmail.com",
+		"phone" : "99700113"
+	}
+]
