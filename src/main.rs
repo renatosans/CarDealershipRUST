@@ -44,6 +44,8 @@ async fn main() -> std::io::Result<()> {
                     .service(salesperson::index)
                     // .service(salesperson::select)
                     // .service(salesperson::create)
+                    // .service(salesperson::update)
+                    .service(salesperson::delete)
             )
     })
     .bind(("127.0.0.1", 8080))?

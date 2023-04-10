@@ -24,3 +24,17 @@ async fn index(pool: web::Data<DbPool>) -> Result<HttpResponse, Error> {
 // }
 
 // ...
+// ...
+
+#[delete("/salespeople/{sp_id}")]
+async fn delete(pool: web::Data<DbPool>, sp_id: web::Path<i32>) -> Result<HttpResponse, Error> {
+   let salespersn = web::block(move || {
+      let mut conn = pool.get().unwrap(); // TODO: fix unwrap
+      let result: Result<usize, diesel::result::Error> = diesel::delete(salesperson.find(sp_id.into_inner())).execute(&mut conn);
+      return result;
+   })
+   .await?
+   .map_err(actix_web::error::ErrorInternalServerError)?;
+
+   Ok(HttpResponse::Ok().json(salespersn))
+}
