@@ -8,6 +8,7 @@ use handlers::customer;
 use handlers::cars_for_sale;
 use diesel::prelude::*;
 use diesel::r2d2::{self, ConnectionManager};
+use actix_cors::Cors;
 use actix_web::{web, middleware, App, HttpServer};
 
 
@@ -24,7 +25,10 @@ async fn main() -> std::io::Result<()> {
         .expect("Failed to create pool.");
 
     HttpServer::new(move || {
+        let cors = Cors::default().allow_any_origin().allow_any_method().allow_any_header();
+
         App::new()
+            .wrap(cors)
             .wrap(middleware::NormalizePath::trim())
             .wrap(middleware::Logger::default())
             .app_data(web::Data::new(pool.clone()))
