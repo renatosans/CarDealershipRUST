@@ -1,5 +1,8 @@
 # CarDealershipRUST
-Sistema para concessionária de carros
+Sistema para concessionária de carros usando RUST, Diesel and Actix Web
+
+## Dependencies
+- Diesel ORM depends on the following client library:   libmysqlclient
 
 ## Steps to run the project
 - create the database using the script located in the database folder (create.sql)
