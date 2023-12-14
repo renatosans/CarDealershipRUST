@@ -14,7 +14,8 @@ use serde::{Serialize, Deserialize};
 #[derive(Queryable, Insertable, AsChangeset, Serialize, Deserialize, Debug)]
 #[diesel(table_name = cars_for_sale)]
 pub struct CarsForSale {
-    pub id: i32,
+    #[diesel(deserialize_as = i32)]
+    pub id: Option<i32>,
     pub brand: String,
     pub model: String,
     pub year: i32,
@@ -27,7 +28,8 @@ pub struct CarsForSale {
 
 #[derive(Queryable, Debug)]
 pub struct CarsForService {
-    pub id: i32,
+    #[diesel(deserialize_as = i32)]
+    pub id: Option<i32>,
     pub customer_id: i32,
     pub car_details: String,
     pub mechanic: String,
@@ -36,7 +38,8 @@ pub struct CarsForService {
 #[derive(Queryable, Insertable, AsChangeset, Serialize, Deserialize, Debug)]
 #[diesel(table_name = customer)]
 pub struct Customer {
-    pub id: i32,
+    #[diesel(deserialize_as = i32)]
+    pub id: Option<i32>,
     pub first_name: String,
     pub last_name: String,
     pub birth_date: NaiveDate,
@@ -46,7 +49,8 @@ pub struct Customer {
 
 #[derive(Queryable, Debug)]
 pub struct Invoice {
-    pub id: i32,
+    #[diesel(deserialize_as = i32)]
+    pub id: Option<i32>,
     pub customer_id: i32,
     pub salesperson_id: i32,
     pub car_id: i32,
@@ -56,7 +60,8 @@ pub struct Invoice {
 #[derive(Queryable, Insertable, AsChangeset, Serialize, Deserialize, Debug)]
 #[diesel(table_name = salesperson)]
 pub struct Salesperson {
-    pub id: i32,
+    #[diesel(deserialize_as = i32)]
+    pub id: Option<i32>,
     pub first_name: Option<String>,
     pub last_name: Option<String>,
     pub commission: f64,
