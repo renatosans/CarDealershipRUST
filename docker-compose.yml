@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  rustapp:
+    container_name: rustapp
+    image: cardealershiprust
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: mysql://root:p@ssw0rd@db:3306/car_dealership
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+  db:
+    container_name: db
+    image: mysql:8.2.0
+    environment:
+      MYSQL_ROOT_PASSWORD: p@ssw0rd
+#    ports:
+#      - '3306:3306'
+    volumes:
+      - ./database/create.sql:/docker-entrypoint-initdb.d/create.sql
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata: {}
