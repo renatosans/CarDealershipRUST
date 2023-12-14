@@ -17,6 +17,7 @@ WORKDIR /usr/local/bin
 
 COPY --from=builder /app/target/release/car_dealership .
 RUN apt-get update
-RUN apt install -y openssl && apt install -y libmariadb3
+RUN apt install -y openssl && apt install -y libmariadbclient-dev
+# && apt install -y libmariadb3
 
 CMD ["./car_dealership"]
