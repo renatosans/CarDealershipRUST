@@ -2,7 +2,7 @@ mod schema;
 mod models;
 mod handlers;
 
-use dotenv::dotenv;
+// use dotenv::dotenv;
 use handlers::salesperson;
 use handlers::customer;
 use handlers::cars_for_sale;
@@ -16,7 +16,8 @@ pub type DbPool = r2d2::Pool<ConnectionManager<MysqlConnection>>;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    dotenv().ok();
+    // Variáveis de ambiente passadas no docker compose,  remover o comentário caso necessite
+    // dotenv().ok();
 
     let database_url = std::env::var("DATABASE_URL").expect("DATABASE_URL");
     let manager = ConnectionManager::<MysqlConnection>::new(database_url);
