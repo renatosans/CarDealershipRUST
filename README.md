@@ -7,6 +7,7 @@ Sistema para concessionária de carros usando RUST, Diesel and Actix Web
 - Diesel ORM depends on the following client library:   libmysqlclient
 - Run the comand to get it:
 > apt install -y default-libmysqlclient-dev
+- MySQL workbench installation may add the dependency as well (MySQL client lib)
 
 ## ~~Steps to run the project~~
 - ~~docker compose up~~
