@@ -17,8 +17,12 @@ WORKDIR /usr/local/bin
 
 COPY --from=builder /app/target/release/car_dealership .
 RUN apt-get update
-RUN apt install -y openssl && apt install -y default-libmysqlclient-dev
-# && apt install -y libmariadb3
-# && apt install -y libmariadbclient-dev
+RUN apt-get upgrade -y
+# RUN apt install -y openssl
+RUN apt install -y gnutls-bin
+# RSA Encryption not supported - caching_sha2_password plugin was built with GnuTLS support
+# RUN apt install -y default-libmysqlclient-dev
+# RUN apt install -y libmariadbclient-dev
+RUN apt install -y libmariadb3
 
 CMD ["./car_dealership"]
